@@ -1,5 +1,7 @@
 const awbInput = document.getElementById('awbCompleta');
 const motivoSelect = document.getElementById('motivo');
+const slaInput = document.getElementById('slaCarga');
+const previewSla = document.getElementById('previewSla');
 const qtdDisplay = document.getElementById('qtdDisplay');
 const menosBtn = document.getElementById('menos');
 const maisBtn = document.getElementById('mais');
@@ -55,6 +57,13 @@ function brDate(){
   return new Intl.DateTimeFormat('pt-BR').format(new Date());
 }
 
+function formatSla(){
+  const value = slaInput.value;
+  if(!value) return '—';
+  const [year, month, day] = value.split('-');
+  return `${day}/${month}/${year}`;
+}
+
 function renderBarcode(svgElement, code, humanText){
   if(!window.JsBarcode || !code){
     svgElement.innerHTML = '';
@@ -105,6 +114,7 @@ function updatePreview(){
   const motivo = motivoSelect.value || 'SELECIONE O MOTIVO';
 
   previewMotivo.textContent = motivo;
+  previewSla.textContent = formatSla();
   fitReasonText(previewMotivo);
 
   previewAwb.textContent = parsed.valid ? parsed.awb : '00000000';
@@ -126,6 +136,7 @@ function setQuantidade(next){
 function resetForm(){
   awbInput.value = '';
   motivoSelect.value = '';
+  slaInput.value = '';
   quantidade = 1;
   awbError.hidden = true;
   updatePreview();
@@ -146,6 +157,7 @@ function cloneLabelForPrint(volumeIndex){
   else if(motivo.length > 25) reason.style.fontSize = '23px';
 
   clone.querySelector('.awb-value').textContent = parsed.awb;
+  clone.querySelector('.sla-value').textContent = formatSla();
   clone.querySelector('.awb-completa span').textContent = parsed.completa;
   clone.querySelector('.volume-value').textContent = `${volumeIndex} / ${quantidade}`;
   clone.querySelector('.barcode-human').textContent = parsed.awb;
@@ -206,6 +218,8 @@ awbInput.addEventListener('keydown', (event) => {
 });
 
 motivoSelect.addEventListener('change', updatePreview);
+slaInput.addEventListener('input', updatePreview);
+slaInput.addEventListener('change', updatePreview);
 menosBtn.addEventListener('click', () => setQuantidade(quantidade - 1));
 maisBtn.addEventListener('click', () => setQuantidade(quantidade + 1));
 novaAwbBtn.addEventListener('click', resetForm);

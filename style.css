@@ -445,6 +445,27 @@ kbd{
   justify-content:space-between;
 }
 
+#slaCarga{
+  padding:0 14px;
+  font-size:16px;
+  letter-spacing:0;
+}
+
+.sla-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:10px;
+  gap:8px;
+}
+
+.sla-value{
+  font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size:18px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
 .volume-value{
   font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size:26px;

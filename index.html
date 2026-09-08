@@ -64,11 +64,18 @@
           <option>DESTINATÁRIO AUSENTE</option>
           <option>CLIENTE DESCONHECE O RECEBIMENTO</option>
           <option>CLIENTE RECUSOU O RECEBIMENTO</option>
+          <option>CLIENTE MUDOU</option>
           <option>ESTABELECIMENTO FECHADO</option>
           <option>ÁREA DE RISCO / RESTRIÇÃO</option>
           <option>DIVERGÊNCIA CADASTRAL</option>
           <option>OUTRO</option>
         </select>
+      </div>
+
+      <div class="field-group">
+        <label for="slaCarga">SLA da carga</label>
+        <input id="slaCarga" type="date" aria-describedby="slaHelp" />
+        <div id="slaHelp" class="help-box">Informe a data de SLA da carga para exibir na etiqueta.</div>
       </div>
 
       <div class="field-group">
@@ -122,6 +129,11 @@
           </section>
 
           <div class="thin-rule"></div>
+
+          <section class="sla-row">
+            <div class="micro-title">SLA DA CARGA</div>
+            <div class="sla-value" id="previewSla">—</div>
+          </section>
 
           <section class="volume-row">
             <div class="micro-title">VOLUME</div>
