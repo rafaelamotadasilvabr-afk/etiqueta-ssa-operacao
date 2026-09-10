@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Etiqueta | Operação</title>
+  <title>Etiqueta SSA | Operação</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,7 +13,7 @@
         <img src="gds-logo.png" alt="GDS Logística">
       </div>
       <div>
-        <h1>Etiqueta</h1>
+        <h1>Etiqueta SSA</h1>
         <p>Gerador de etiquetas de pendência</p>
       </div>
     </div>
@@ -64,18 +64,15 @@
           <option>DESTINATÁRIO AUSENTE</option>
           <option>CLIENTE DESCONHECE O RECEBIMENTO</option>
           <option>CLIENTE RECUSOU O RECEBIMENTO</option>
-          <option>CLIENTE MUDOU</option>
           <option>ESTABELECIMENTO FECHADO</option>
           <option>ÁREA DE RISCO / RESTRIÇÃO</option>
           <option>DIVERGÊNCIA CADASTRAL</option>
+          <option>ETIQUETA DIVERGENTE</option>
+          <option>DEVOLUÇÃO</option>
+          <option>BAIXA ERRÔNEA</option>
+          <option>DUPLICIDADE</option>
           <option>OUTRO</option>
         </select>
-      </div>
-
-      <div class="field-group">
-        <label for="slaCarga">SLA da carga</label>
-        <input id="slaCarga" type="date" aria-describedby="slaHelp" />
-        <div id="slaHelp" class="help-box">Informe a data de SLA da carga para exibir na etiqueta.</div>
       </div>
 
       <div class="field-group">
@@ -110,7 +107,8 @@
       <div class="label-stage">
         <article class="shipping-label" id="previewLabel">
           <div class="label-top">
-              <div class="label-title">ETIQUETA DE PENDÊNCIA</div>
+            <div class="station">SSA</div>
+            <div class="label-title">ETIQUETA DE PENDÊNCIA</div>
           </div>
 
           <div class="thick-rule"></div>
@@ -129,11 +127,6 @@
           </section>
 
           <div class="thin-rule"></div>
-
-          <section class="sla-row">
-            <div class="micro-title">SLA DA CARGA</div>
-            <div class="sla-value" id="previewSla">—</div>
-          </section>
 
           <section class="volume-row">
             <div class="micro-title">VOLUME</div>
@@ -160,3 +153,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
